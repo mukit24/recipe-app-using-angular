@@ -1,0 +1,16 @@
+<p-button label="New Recipe" icon="pi pi-plus" styleClass="p-button-sm p-button-success"></p-button>
+<ul class="list-group list-group-flush" *ngFor="let recipe of recipes">
+    <li class="list-group-item">
+        <div class="row">
+            <div class="col-7">
+                <h5>{{recipe.name}}</h5>
+                <p>{{recipe.description}}</p>
+            </div>
+            <div class="col-5">
+                <img class="img-fluid" [src]="recipe.imagePath" style="max-height: 60px;">
+            </div>
+        </div>
+        <hr>
+    </li>
+</ul>
+<app-recipe-item></app-recipe-item>
