@@ -11,6 +11,8 @@ import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/sh
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { DropdownDirecive } from './shared/dropdown.directive';
+import { AppRouting } from './app-routing.module';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { DropdownDirecive } from './shared/dropdown.directive';
     ShoppingListComponent,
     ShoppingListEditComponent,
     DropdownDirecive,
+    RecipeStartComponent,
   ],
   imports: [
     BrowserModule,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    AppRouting
   ],
   providers: [],
   bootstrap: [AppComponent]

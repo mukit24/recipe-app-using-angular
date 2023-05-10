@@ -1,4 +1,4 @@
-<li class="list-group-item" (click)="onSelected()">
+<li class="list-group-item" [routerLink]="[index]" routerLinkActive="list-group-item-success">
     <div class="row">
         <div class="col-7">
             <h5>{{recipe?.name}}</h5>
