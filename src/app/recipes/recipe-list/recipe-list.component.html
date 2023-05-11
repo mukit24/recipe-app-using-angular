@@ -1,4 +1,4 @@
-<p-button label="New Recipe" icon="pi pi-plus" styleClass="p-button-sm p-button-success"></p-button>
+<p-button label="New Recipe" icon="pi pi-plus" styleClass="p-button-sm p-button-success" (onClick)="onCreateRecipe()"></p-button>
 <ul class="list-group list-group-flush py-2">
     <app-recipe-item *ngFor="let recipeElement of recipes;let i=index" [recipe]="recipeElement" [index]="i"></app-recipe-item>
 </ul>
