@@ -1,6 +1,8 @@
-import { Component, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
+import { NgForm } from '@angular/forms';
+import { ShoppingListComponent } from '../shopping-list.component';
 
 @Component({
   selector: 'app-shopping-list-edit',
@@ -8,16 +10,22 @@ import { ShoppingListService } from '../shopping-list.service';
   styleUrls: ['./shopping-list-edit.component.css']
 })
 
-export class ShoppingListEditComponent {
-  @ViewChild('nameInput') nameInputRef : ElementRef;
-  @ViewChild('amountInput') amountInputRef : ElementRef;
+export class ShoppingListEditComponent implements OnInit{
  
-  constructor(private slService: ShoppingListService){}
+  constructor(private slService: ShoppingListService, private slCom: ShoppingListComponent){}
 
-  onAddItem(){
-    const ingName = this.nameInputRef.nativeElement.value;
-    const ingAmount = this.amountInputRef.nativeElement.value;
-    const newIng = new Ingredient(ingName, ingAmount);
+  ngOnInit(): void {
+    this.slCom.indexSubject.subscribe( data => {
+      console.log(data);
+    })
+  }
+  onAddItem(form: NgForm){
+    let value = form.value;
+    const newIng = new Ingredient(value.name, value.amount);
     this.slService.addIngredient(newIng);
+  }
+
+  getIndex(event: any){
+
   }
 }
