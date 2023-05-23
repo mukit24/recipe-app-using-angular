@@ -23,11 +23,19 @@ export class RecipeService {
   ]
 
   getRecipes() {
-    return this.recipes.slice();
+    return this.recipes;
   }
 
   getRecipe(index: number){
     return this.recipes[index];
+  }
+
+  addRecipe(recipe: Recipe){
+    this.recipes.push(recipe);
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe){
+    this.recipes[index]= newRecipe;
   }
 
   constructor() { }

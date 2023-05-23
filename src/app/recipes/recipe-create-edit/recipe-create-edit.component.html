@@ -1,1 +1,24 @@
-<p>recipe-create-edit works!</p>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Recipe Name" formControlName="name">
+    </div>
+    <div class="mb-3">
+        <label for="image_path" class="form-label">Image Path</label>
+        <input type="text" class="form-control" id="image_path" placeholder="Recipe Image" formControlName="imagePath">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3" placeholder="Recipe Description" formControlName="description"></textarea>
+    </div>
+    <button class="btn btn-dark mb-2 w-100" type="button" (click)="onAddIngredient()">Add Ingredient</button>
+    <div formArrayName="ingredients">
+        <div *ngFor="let ingCntl of controls; let i = index" [formGroupName]="i">
+            <div class="mb-3 d-flex">
+                <input type="text" class="form-control me-2" formControlName="name">
+                <input type="number" class="form-control" formControlName="amount">
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="!recipeForm.valid">Submit</button>
+</form>
