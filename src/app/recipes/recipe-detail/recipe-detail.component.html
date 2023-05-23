@@ -2,7 +2,7 @@
 <span class="p-buttonset">
     <p-button label="To Shopping List" icon="pi pi-plus" styleClass="p-button-sm p-button-help" (onClick)="onAddToShoppingList()"></p-button>
     <p-button label="Edit" icon="pi pi-pencil" styleClass="p-button-sm p-button-info" (onClick)="onEditRecipe()"></p-button>
-    <p-button label="Delete" icon="pi pi-times" styleClass="p-button-sm p-button-danger"></p-button>
+    <p-button label="Delete" icon="pi pi-times" styleClass="p-button-sm p-button-danger" (onClick)="onDeleteRecipe()"></p-button>
 </span>
 <p>{{recipe.description}}</p>
 <h5>Ingredients</h5>

@@ -15,10 +15,14 @@
     <div formArrayName="ingredients">
         <div *ngFor="let ingCntl of controls; let i = index" [formGroupName]="i">
             <div class="mb-3 d-flex">
-                <input type="text" class="form-control me-2" formControlName="name">
-                <input type="number" class="form-control" formControlName="amount">
+                <input type="text" class="form-control" formControlName="name">
+                <input type="number" class="form-control mx-2" formControlName="amount">
+                <p-button icon="pi pi-times" styleClass="p-button-sm p-button-danger" type="button" (onClick)="onClearIngredients(i)"></p-button>
             </div>
         </div>
     </div>
-    <button class="btn btn-success" type="submit" [disabled]="!recipeForm.valid">Submit</button>
+    <span class="p-buttonset">
+        <p-button label="Submit" icon="pi pi-plus" type="submit" [disabled]="!recipeForm.valid" styleClass="p-button-sm p-button-success"></p-button>
+        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-sm p-button-danger" type="button" (onClick)="onCancel()"></p-button>
+    </span>
 </form>
